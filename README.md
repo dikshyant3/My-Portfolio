@@ -15,8 +15,9 @@ npm run preview # serve the production build locally
 
 ## Deployment
 
-Pushes to `main` build and publish to GitHub Pages via
-`.github/workflows/deploy.yml`. Because this is a *project* site it is served
+Pushes to `main` build the site and force-push the output to the `gh-pages`
+branch via `.github/workflows/deploy.yml`. Pages then serves that branch
+(Settings > Pages > Deploy from a branch > `gh-pages` > `/ (root)`). Because this is a *project* site it is served
 from `/<repo-name>/`, so the workflow builds with `VITE_BASE` set and the app
 routes through `src/lib/paths.ts`. Vite also emits a `404.html` copy of
 `index.html` so client-side routes survive a direct hit or refresh.
