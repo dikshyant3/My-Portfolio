@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight, Home } from 'lucide-react';
+import { href } from '../../lib/paths';
 
 interface BreadcrumbProps {
   currentPage: string;
@@ -28,7 +29,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ currentPage }) => {
         <ol className="flex items-center gap-2 text-sm">
           <li>
             <a
-              href="/"
+              href={href('/')}
               className="flex items-center gap-1 text-[var(--color-text-secondary)] hover:text-[var(--color-accent-blue)] transition-colors"
               aria-label="Go to home page"
             >

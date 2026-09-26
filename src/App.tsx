@@ -10,13 +10,14 @@ import { ExperiencePage } from './components/pages/ExperiencePage';
 import { SkillsPage } from './components/pages/SkillsPage';
 import { BlogPage } from './components/pages/BlogPage';
 import { ContactPage } from './components/pages/ContactPage';
+import { routeFromLocation } from './lib/paths';
 
 export default function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentPath, setCurrentPath] = useState(routeFromLocation());
 
   useEffect(() => {
     const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
+      setCurrentPath(routeFromLocation());
     };
 
     window.addEventListener('popstate', handlePopState);

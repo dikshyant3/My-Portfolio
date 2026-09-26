@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Code } from 'lucide-react';
+import { href } from '../../lib/paths';
 
 interface NavItemProps {
   to: string;
@@ -11,7 +12,7 @@ interface NavItemProps {
 const NavItem: React.FC<NavItemProps> = ({ to, children, isActive = false, onClick }) => {
   return (
     <a
-      href={to}
+      href={href(to)}
       onClick={onClick}
       className={`px-4 py-2 transition-colors rounded-md ${
         isActive
@@ -41,7 +42,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a
-            href="/"
+            href={href('/')}
             className="flex items-center gap-2 text-[var(--color-text-primary)] hover:text-[var(--color-accent-blue)] transition-colors"
             aria-label="Dikshyant Dhungana - Home"
           >

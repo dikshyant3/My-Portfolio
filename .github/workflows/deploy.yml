@@ -1,46 +1,26 @@
-name: Deploy to Vercel
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
-# Never let two production deploys race each other.
+# Let GITHUB_TOKEN publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time; don't cancel a run that's mid-publish.
 concurrency:
-  group: production-deploy
-  cancel-in-progress: true
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    name: Build & deploy (production)
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    environment:
-      name: production
-      url: ${{ steps.deploy.outputs.url }}
-    env:
-      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
-      - name: Check Vercel credentials are configured
-        run: |
-          missing=""
-          if [ -z "$VERCEL_TOKEN" ]; then missing="$missing VERCEL_TOKEN"; fi
-          if [ -z "$VERCEL_ORG_ID" ]; then missing="$missing VERCEL_ORG_ID"; fi
-          if [ -z "$VERCEL_PROJECT_ID" ]; then missing="$missing VERCEL_PROJECT_ID"; fi
-          if [ -n "$missing" ]; then
-            echo "::error::Missing repository secret(s):$missing"
-            echo ""
-            echo "Add them under Settings > Secrets and variables > Actions:"
-            echo "  https://github.com/${{ github.repository }}/settings/secrets/actions"
-            echo ""
-            echo "  VERCEL_TOKEN       vercel.com/account/tokens"
-            echo "  VERCEL_ORG_ID      orgId in .vercel/project.json after 'vercel link'"
-            echo "  VERCEL_PROJECT_ID  projectId in that same file"
-            exit 1
-          fi
-          echo "All three Vercel secrets are present."
-
       - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v4
@@ -54,18 +34,26 @@ jobs:
       - name: Typecheck
         run: npx tsc --noEmit
 
-      - name: Install Vercel CLI
-        run: npm install --global vercel@latest
-
-      - name: Pull Vercel project settings
-        run: vercel pull --yes --environment=production --token="$VERCEL_TOKEN"
-
       - name: Build
-        run: vercel build --prod --token="$VERCEL_TOKEN"
+        # A project Pages site is served from /<repo-name>/, so the bundle and
+        # every internal link have to be built with that prefix.
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+        run: npm run build
 
-      - name: Deploy
-        id: deploy
-        run: |
-          url=$(vercel deploy --prebuilt --prod --token="$VERCEL_TOKEN")
-          echo "url=$url" >> "$GITHUB_OUTPUT"
-          echo "Deployed to $url"
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

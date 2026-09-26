@@ -1,9 +1,10 @@
 import React from 'react';
 import { Mail, Linkedin, Github, GraduationCap, FileDown } from 'lucide-react';
+import { href } from '../../lib/paths';
 
 // Drop your PDF at public/resume.pdf, or point this at an external link
 // (Google Drive, Dropbox, etc.) if you'd rather host it elsewhere.
-const RESUME_URL = '/resume.pdf';
+const RESUME_URL = href('/resume.pdf');
 
 interface SocialLinkProps {
   icon: React.ReactNode;

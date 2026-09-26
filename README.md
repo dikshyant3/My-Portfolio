@@ -13,6 +13,16 @@ npm run build   # typecheck + production build into build/
 npm run preview # serve the production build locally
 ```
 
+## Deployment
+
+Pushes to `main` build and publish to GitHub Pages via
+`.github/workflows/deploy.yml`. Because this is a *project* site it is served
+from `/<repo-name>/`, so the workflow builds with `VITE_BASE` set and the app
+routes through `src/lib/paths.ts`. Vite also emits a `404.html` copy of
+`index.html` so client-side routes survive a direct hit or refresh.
+
+Put your CV at `public/resume.pdf` — the hero's download button links to it.
+
 ## Structure
 
 ```
@@ -20,6 +30,7 @@ index.html              Vite entry HTML
 src/main.tsx            React root
 src/App.tsx             Path-based router (pushState / popstate)
 src/index.css           Tailwind directives + design tokens
+src/lib/paths.ts        Deployment-base helpers for routes and links
 src/components/layout/  Header, Footer
 src/components/pages/   One component per route
 src/components/sections/Reusable page sections
