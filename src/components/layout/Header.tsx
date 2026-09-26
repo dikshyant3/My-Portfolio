@@ -60,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
             <NavItem to="/publications" isActive={isActive('/publications')}>Publications</NavItem>
             <NavItem to="/experience" isActive={isActive('/experience')}>Experience</NavItem>
             <NavItem to="/skills" isActive={isActive('/skills')}>Skills</NavItem>
-            <NavItem to="/vitae" isActive={isActive('/vitae')}>Vitae</NavItem>
+            <NavItem to="/blog" isActive={isActive('/blog')}>Blog</NavItem>
             <NavItem to="/contact" isActive={isActive('/contact')}>Contact</NavItem>
           </nav>
           
@@ -99,7 +99,7 @@ export const Header: React.FC<HeaderProps> = ({ currentPath }) => {
               <NavItem to="/publications" isActive={isActive('/publications')} onClick={closeMenu}>Publications</NavItem>
               <NavItem to="/experience" isActive={isActive('/experience')} onClick={closeMenu}>Experience</NavItem>
               <NavItem to="/skills" isActive={isActive('/skills')} onClick={closeMenu}>Skills</NavItem>
-              <NavItem to="/vitae" isActive={isActive('/vitae')} onClick={closeMenu}>Vitae</NavItem>
+              <NavItem to="/blog" isActive={isActive('/blog')} onClick={closeMenu}>Blog</NavItem>
               <NavItem to="/contact" isActive={isActive('/contact')} onClick={closeMenu}>Contact</NavItem>
             </div>
           </nav>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { GraduationCap, Award, BookOpen, Code } from 'lucide-react';
+import { GraduationCap, Award, Code } from 'lucide-react';
 
 interface EducationCardProps {
   year: string;
@@ -46,31 +46,24 @@ const EducationCard: React.FC<EducationCardProps> = ({ year, degree, institution
 export const EducationSection: React.FC = () => {
   const education = [
     {
-      year: '2024',
+      year: '2026 - Present',
       degree: 'Ph.D. in Computer Science',
-      institution: 'Example State University',
-      description: 'Focusing on distributed systems, cloud computing, and machine learning infrastructure. Research on efficient resource allocation and scalable architectures.',
+      institution: 'Tennessee Technological University, Cookeville, TN',
+      description: 'Researching the security of artificial intelligence under Dr. Maanak Gupta. Focus on adversarial machine learning — evasion and poisoning attacks, model extraction, and defenses that hold up against adaptive adversaries rather than a single fixed threat model.',
       icon: <GraduationCap size={24} />,
     },
     {
-      year: '2023',
-      degree: 'M.S. in Computer Science',
-      institution: 'Tech University',
-      description: 'Specialized in software engineering and distributed systems. Thesis on real-time data processing and stream analytics.',
-      icon: <BookOpen size={24} />,
-    },
-    {
-      year: '2021',
+      year: '2019 - 2024',
       degree: 'B.E. in Computer Engineering',
-      institution: 'Engineering College',
-      description: 'Graduated with honors. Focus on software development, algorithms, and system design. Completed capstone project on machine learning applications.',
+      institution: 'Western Regional Campus, Tribhuvan University, Nepal',
+      description: 'Coursework spanning algorithms, systems, and machine learning, with hands-on software engineering throughout. Built the programming and systems foundation that now underpins my work on securing AI models in deployment.',
       icon: <Code size={24} />,
     },
     {
-      year: '2020',
+      year: '2019',
       degree: 'Merit Scholarship',
-      institution: 'Tech University',
-      description: 'Awarded full scholarship for academic excellence and research contributions in computer science.',
+      institution: 'Tribhuvan University, Nepal',
+      description: 'Awarded on the basis of entrance examination performance for the Bachelor of Engineering program.',
       icon: <Award size={24} />,
     },
   ];

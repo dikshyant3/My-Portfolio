@@ -8,7 +8,7 @@ import { ResearchPage } from './components/pages/ResearchPage';
 import { PublicationsPage } from './components/pages/PublicationsPage';
 import { ExperiencePage } from './components/pages/ExperiencePage';
 import { SkillsPage } from './components/pages/SkillsPage';
-import { VitaePage } from './components/pages/VitaePage';
+import { BlogPage } from './components/pages/BlogPage';
 import { ContactPage } from './components/pages/ContactPage';
 
 export default function App() {
@@ -38,8 +38,8 @@ export default function App() {
         return <ExperiencePage />;
       case '/skills':
         return <SkillsPage />;
-      case '/vitae':
-        return <VitaePage />;
+      case '/blog':
+        return <BlogPage />;
       case '/contact':
         return <ContactPage />;
       default:

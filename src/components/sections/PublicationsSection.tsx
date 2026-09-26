@@ -1,5 +1,8 @@
 import React from 'react';
-import { FileText, BookOpen, Users } from 'lucide-react';
+import { FileText, BookOpen, Users, GraduationCap } from 'lucide-react';
+
+const SCHOLAR_URL =
+  'https://scholar.google.com/citations?user=-PkiYYIAAAAJ&hl=en';
 
 interface PublicationCardProps {
   title: string;
@@ -89,36 +92,12 @@ const PublicationCard: React.FC<PublicationCardProps> = ({ title, authors, venue
 export const PublicationsSection: React.FC = () => {
   const publications = [
     {
-      title: 'Efficient Resource Allocation in Distributed Cloud Environments',
-      authors: 'D. Dhungana, J. Smith, and A. Johnson',
-      venue: 'International Conference on Distributed Computing Systems (ICDCS)',
-      year: '2024',
-      type: 'conference' as const,
-      link: '#',
-    },
-    {
-      title: 'Scalable Machine Learning Infrastructure for Large-Scale Applications',
-      authors: 'D. Dhungana, M. Brown',
-      venue: 'ACM Transactions on Computer Systems',
+      title: 'Malware classification using static analysis approaches',
+      authors: 'D. Dhungana, A. Sapkota, S. Pokharel, S. Devkota, B. H. Paudel',
+      venue: 'Journal of Artificial Intelligence, 6(4), 494\u2013511',
       year: '2024',
       type: 'journal' as const,
-      link: '#',
-    },
-    {
-      title: 'Optimizing Data Processing Pipelines in Real-Time Systems',
-      authors: 'D. Dhungana, K. Williams, L. Davis',
-      venue: 'Workshop on Cloud Computing and Big Data (WCCBD)',
-      year: '2023',
-      type: 'workshop' as const,
-      link: '#',
-    },
-    {
-      title: 'Performance Analysis of Distributed Training Systems',
-      authors: 'D. Dhungana, R. Martinez',
-      venue: 'IEEE International Symposium on High Performance Computer Architecture',
-      year: '2023',
-      type: 'conference' as const,
-      link: '#',
+      link: SCHOLAR_URL,
     },
   ];
   
@@ -141,6 +120,18 @@ export const PublicationsSection: React.FC = () => {
               link={pub.link}
             />
           ))}
+        </div>
+        
+        <div className="mt-10 text-center">
+          <a
+            href={SCHOLAR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[var(--color-accent-blue)] hover:underline"
+          >
+            <GraduationCap size={18} aria-hidden="true" />
+            See all publications on Google Scholar
+          </a>
         </div>
       </div>
     </section>

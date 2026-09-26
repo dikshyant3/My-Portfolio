@@ -1,5 +1,5 @@
 import React from 'react';
-import { Briefcase, Code, Users, Lightbulb } from 'lucide-react';
+import { Smartphone, FlaskConical } from 'lucide-react';
 
 interface ExperienceCardProps {
   year: string;
@@ -46,32 +46,18 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ year, title, company, d
 export const ExperienceSection: React.FC = () => {
   const experiences = [
     {
-      year: '2024',
+      year: 'Jan 2026 - Present',
       title: 'Graduate Research Assistant',
-      company: 'Example State University',
-      description: 'Conducting research in distributed systems and cloud computing. Working on novel approaches to resource optimization in large-scale computing environments.',
-      icon: <Lightbulb size={24} />,
+      company: 'Tennessee Technological University, Cookeville, TN',
+      description: 'Getting started in AI security research with Dr. Maanak Gupta\u2019s group. Building foundations in machine learning and model robustness \u2014 working through the core literature, reproducing baseline attacks and defenses from published work, and setting up the training and evaluation pipelines the group\u2019s experiments run on.',
+      icon: <FlaskConical size={24} />,
     },
     {
-      year: '2023',
-      title: 'Software Engineer',
-      company: 'Tech Innovations Inc.',
-      description: 'Developed scalable microservices architecture for enterprise applications. Led the implementation of CI/CD pipelines and improved deployment efficiency by 40%.',
-      icon: <Code size={24} />,
-    },
-    {
-      year: '2023',
-      title: 'Research Intern',
-      company: 'Advanced Computing Research Institute',
-      description: 'Contributed to machine learning optimization projects. Implemented distributed training algorithms and conducted performance analysis on GPU clusters.',
-      icon: <Briefcase size={24} />,
-    },
-    {
-      year: '2021',
-      title: 'Junior Software Developer',
-      company: 'Digital Solutions Co.',
-      description: 'Built responsive web applications using modern frameworks. Collaborated with cross-functional teams to deliver high-quality software products.',
-      icon: <Users size={24} />,
+      year: 'Jun 2025 - Dec 2025',
+      title: 'Mobile Application Developer Fellow',
+      company: 'Gritfeat Solutions Pvt. Ltd., Kathmandu, Nepal',
+      description: 'Built and shipped production mobile applications as part of the company\u2019s developer fellowship, working across the full delivery cycle from feature implementation to release. Hands-on experience with the engineering practices \u2014 testing, code review, and deployment \u2014 that carry directly into building reliable AI systems.',
+      icon: <Smartphone size={24} />,
     },
   ];
   

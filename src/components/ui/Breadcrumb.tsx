@@ -14,7 +14,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ currentPage }) => {
       '/publications': 'Publications',
       '/experience': 'Experience',
       '/skills': 'Skills',
-      '/vitae': 'Vitae',
+      '/blog': 'Blog',
       '/contact': 'Contact',
     };
     return titles[path] || 'Home';

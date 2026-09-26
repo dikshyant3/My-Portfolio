@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Send, Mail, Phone, MapPin } from 'lucide-react';
 
+// OpenStreetMap embed — no API key required. bbox frames the Tennessee Tech
+// campus; marker pins the Ashraf Islam Engineering Building (36.1755, -85.5081).
+const MAP_EMBED_URL =
+  'https://www.openstreetmap.org/export/embed.html' +
+  '?bbox=-85.5141%2C36.1730%2C-85.5021%2C36.1780' +
+  '&layer=mapnik' +
+  '&marker=36.1755%2C-85.5081';
+
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -54,10 +62,10 @@ export const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="text-sm text-[var(--color-text-muted)] mb-1">Email</h4>
                     <a
-                      href="mailto:dikshyant@example.edu"
+                      href="mailto:dikshyantdhungana@gmail.com"
                       className="text-[var(--color-text-primary)] hover:text-[var(--color-accent-blue)] transition-colors"
                     >
-                      dikshyant@bhalu.com
+                      dikshyantdhungana@gmail.com
                     </a>
                   </div>
                 </div>
@@ -84,20 +92,24 @@ export const ContactSection: React.FC = () => {
                   <div>
                     <h4 className="text-sm text-[var(--color-text-muted)] mb-1">Office</h4>
                     <address className="text-[var(--color-text-primary)] not-italic">
-                      123 Research Building (Room 456)<br />
-                      1234 University Avenue<br />
-                      City, State 12345
+                      AIEB (Room 231)<br />
+                      1021 Stadium Drive<br />
+                      Cookeville, TN 38501
                     </address>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Map placeholder */}
+            {/* Map */}
             <div className="bg-[var(--color-bg-light)] rounded-lg overflow-hidden shadow-md h-64">
-              <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
-                <p className="text-[var(--color-text-muted)]">Map Location</p>
-              </div>
+              <iframe
+                title="Map showing the Ashraf Islam Engineering Building at Tennessee Tech, Cookeville, Tennessee"
+                src={MAP_EMBED_URL}
+                className="w-full h-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
           

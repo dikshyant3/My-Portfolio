@@ -1,11 +1,31 @@
+# Website Redesign for Dikshyant Dhungana
 
-  # Website Redesign for Dikshyant Dhungana
+Personal academic portfolio built with **Vite + React 18 + TypeScript + Tailwind CSS**.
 
-  This is a code bundle for Website Redesign for Dikshyant Dhungana. The original project is available at https://www.figma.com/design/289QicN9FTzlZRGGKR02QI/Website-Redesign-for-Dikshyant-Dhungana.
+Original design: https://www.figma.com/design/289QicN9FTzlZRGGKR02QI/Website-Redesign-for-Dikshyant-Dhungana
 
-  ## Running the code
+## Running the code
 
-  Run `npm i` to install the dependencies.
+```bash
+npm install     # install dependencies
+npm run dev     # start the dev server on http://localhost:3000
+npm run build   # typecheck + production build into build/
+npm run preview # serve the production build locally
+```
 
-  Run `npm run dev` to start the development server.
-  
+## Structure
+
+```
+index.html              Vite entry HTML
+src/main.tsx            React root
+src/App.tsx             Path-based router (pushState / popstate)
+src/index.css           Tailwind directives + design tokens
+src/components/layout/  Header, Footer
+src/components/pages/   One component per route
+src/components/sections/Reusable page sections
+src/components/ui/      Breadcrumb, ScrollToTop
+```
+
+Design tokens (`--color-text-primary`, `--color-accent-blue`, …) are defined in
+`src/index.css` and consumed via Tailwind arbitrary values, e.g.
+`text-[var(--color-text-primary)]`.

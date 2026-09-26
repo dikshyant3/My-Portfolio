@@ -33,6 +33,17 @@
     --ring: 222.2 84% 4.9%;
  
     --radius: 0.5rem;
+
+    /* Portfolio design tokens (used throughout the page sections) */
+    --color-text-primary: #1a1a1a;
+    --color-text-secondary: #4a5568;
+    --color-text-muted: #718096;
+    --color-accent-blue: #2563eb;
+    --color-accent-blue-dark: #1e40af;
+    --color-bg-light: #f7fafc;
+    --color-bg-section: #ffffff;
+    --color-timeline-line: #e2e8f0;
+    --color-timeline-dot: #2563eb;
   }
  
   .dark {
@@ -72,5 +83,33 @@
   }
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Accessibility */
+*:focus-visible {
+  outline: 2px solid var(--color-accent-blue);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

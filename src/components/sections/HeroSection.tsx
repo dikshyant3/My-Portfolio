@@ -1,5 +1,9 @@
 import React from 'react';
-import { Mail, Linkedin, Github, GraduationCap } from 'lucide-react';
+import { Mail, Linkedin, Github, GraduationCap, FileDown } from 'lucide-react';
+
+// Drop your PDF at public/resume.pdf, or point this at an external link
+// (Google Drive, Dropbox, etc.) if you'd rather host it elsewhere.
+const RESUME_URL = '/resume.pdf';
 
 interface SocialLinkProps {
   icon: React.ReactNode;
@@ -31,7 +35,7 @@ export const HeroSection: React.FC = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-blue-200 mb-6 shadow-lg">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop"
+                src=""
                 alt="Dikshyant Dhungana"
                 className="w-full h-full object-cover"
               />
@@ -44,30 +48,18 @@ export const HeroSection: React.FC = () => {
             <p className="text-lg text-[var(--color-text-secondary)] mb-4">PhD Student</p>
             
             <div className="mb-4 text-center md:text-left">
-              <a
-                href="https://cs.example.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-accent-blue)] hover:underline"
-              >
+              <p className="text-sm text-[var(--color-text-muted)]">
                 Department of Computer Science
-              </a>
               <br />
-              <a
-                href="https://example.edu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[var(--color-accent-blue)] hover:underline"
-              >
-                Example State University
-              </a>
+                Tennessee Technological University
+              </p>
             </div>
             
             <div className="mb-6">
               <p className="mb-1">
                 <strong>Graduate Research Assistant</strong>{' '}
                 <a
-                  href="https://lab.example.edu"
+                  href="https://www.maanakgupta.com/students"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[var(--color-accent-blue)] hover:underline"
@@ -76,13 +68,13 @@ export const HeroSection: React.FC = () => {
                 </a>
               </p>
               <p className="text-sm text-[var(--color-text-muted)] mb-1">
-                123 Research Building (Room 456)
+                AIEB (Room 231)
               </p>
               <p className="text-sm text-[var(--color-text-muted)] mb-1">
-                1234 University Avenue
+                1021 Stadium Drive
               </p>
               <p className="text-sm text-[var(--color-text-muted)]">
-                City, State 12345
+                Cookeville, TN 38501.
               </p>
             </div>
             
@@ -90,21 +82,21 @@ export const HeroSection: React.FC = () => {
               <SocialLink
                 icon={<Mail size={18} />}
                 href="mailto:dikshyant@example.edu"
-                label="dikshyant@example.edu"
+                label="dikshyantdhungana@gmail.com"
               />
               <SocialLink
                 icon={<Linkedin size={18} />}
-                href="https://linkedin.com/in/dikshyant-dhungana"
+                href="https://www.linkedin.com/in/dikshyantdhungana/"
                 label="LinkedIn Profile"
               />
               <SocialLink
                 icon={<Github size={18} />}
-                href="https://github.com/dikshyantdhungana"
+                href="https://github.com/dikshyant3"
                 label="GitHub Profile"
               />
               <SocialLink
                 icon={<GraduationCap size={18} />}
-                href="https://scholar.google.com"
+                href="https://scholar.google.com/citations?user=-PkiYYIAAAAJ&hl=en"
                 label="Google Scholar"
               />
             </nav>
@@ -114,36 +106,48 @@ export const HeroSection: React.FC = () => {
           <div className="space-y-6">
             <div>
               <h2 className="text-3xl md:text-4xl mb-6 text-[var(--color-text-primary)]">
-                Hi, I am
+                Hi, I am Dikshyant👋🏻
               </h2>
               
               <div className="space-y-4 text-[var(--color-text-secondary)] leading-relaxed">
                 <p>
-                  I'm a PhD student and Graduate Research Assistant in the Computer Science Department at Example State University. I joined the research lab in August 2024 and work under Dr. Jane Smith, contributing to innovative research in distributed systems, cloud computing, and machine learning infrastructure.
+                  I'm a PhD student and Graduate Research Assistant in the Department of Computer
+                  Science at Tennessee Technological University, where I joined Dr. Maanak Gupta's
+                  research group in January 2026. My work sits at the intersection of artificial
+                  intelligence and security — I study how modern AI systems fail under adversarial
+                  pressure, and how to build models that hold up when someone is actively trying to
+                  break them.
                 </p>
                 
                 <p>
-                  Building on my background in software engineering and system architecture, from projects like scalable web applications and real-time data processing systems, I bring my research experience to the lab. Previously, I worked as a Software Engineer at Tech Company, where I developed high-performance distributed systems.
+                  My research centers on adversarial machine learning: understanding attacks that
+                  steer model behavior through carefully perturbed inputs, poisoned training data,
+                  and queries that extract information a model was never meant to reveal. I'm
+                  equally invested in the defensive side — robust training, threat modeling for ML
+                  pipelines, and evaluation methods that measure genuine resilience rather than
+                  robustness against a single known attack.
                 </p>
                 
                 <p>
-                  At the Research Lab, I am excited to be part of a dynamic team that not only advances cutting-edge research in cloud-native architectures but also actively engages with the community through impactful publications and open-source contributions.
+                  I came to this work from a background in software engineering and systems, which
+                  shapes how I approach AI security: the vulnerabilities that matter most tend to
+                  surface where models meet real deployments, not in isolated benchmarks. At
+                  Tennessee Tech I'm glad to be part of a group that pairs rigorous research with
+                  practical impact, through publications, open-source tooling, and engagement with
+                  the wider security community.
                 </p>
               </div>
             </div>
             
             <a
-              href="/vitae"
-              onClick={(e) => {
-                e.preventDefault();
-                window.history.pushState({}, '', '/vitae');
-                window.dispatchEvent(new PopStateEvent('popstate'));
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }}
-              className="inline-flex items-center justify-center px-6 py-3 bg-[var(--color-accent-blue)] text-white rounded-lg hover:bg-[var(--color-accent-blue-dark)] transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-offset-2"
-              aria-label="View my resume"
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-accent-blue)] text-white rounded-lg hover:bg-[var(--color-accent-blue-dark)] transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-offset-2"
+              aria-label="Download my resume as a PDF"
             >
-              See my vitae
+              <FileDown size={18} aria-hidden="true" />
+              Download my resume
             </a>
           </div>
         </div>

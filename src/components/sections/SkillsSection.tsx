@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Database, Cloud, Brain, Network, Terminal } from 'lucide-react';
+import { Code, ShieldAlert, Cloud, Brain, Sparkles, Terminal } from 'lucide-react';
 
 interface SkillCategoryProps {
   title: string;
@@ -37,33 +37,33 @@ const SkillCategory: React.FC<SkillCategoryProps> = ({ title, skills, icon }) =>
 export const SkillsSection: React.FC = () => {
   const skillCategories = [
     {
-      title: 'Programming Languages',
-      skills: ['Python', 'JavaScript', 'Java', 'C++', 'Go', 'TypeScript'],
-      icon: <Code size={20} />,
-    },
-    {
-      title: 'Cloud & Infrastructure',
-      skills: ['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'CI/CD'],
-      icon: <Cloud size={20} />,
-    },
-    {
-      title: 'Databases',
-      skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch', 'MySQL'],
-      icon: <Database size={20} />,
-    },
-    {
       title: 'Machine Learning',
-      skills: ['TensorFlow', 'PyTorch', 'Scikit-learn', 'Keras', 'MLflow'],
+      skills: ['PyTorch', 'TensorFlow', 'scikit-learn', 'Hugging Face', 'NumPy', 'Pandas'],
       icon: <Brain size={20} />,
     },
     {
-      title: 'Distributed Systems',
-      skills: ['Kafka', 'RabbitMQ', 'Apache Spark', 'Hadoop', 'gRPC'],
-      icon: <Network size={20} />,
+      title: 'LLMs & Applied AI',
+      skills: ['LangChain', 'LangGraph', 'RAG', 'Prompt Engineering', 'Fine-tuning'],
+      icon: <Sparkles size={20} />,
+    },
+    {
+      title: 'AI Security',
+      skills: ['Adversarial Examples', 'Evasion Attacks', 'Data Poisoning', 'Model Robustness'],
+      icon: <ShieldAlert size={20} />,
+    },
+    {
+      title: 'Programming Languages',
+      skills: ['Python', 'JavaScript', 'TypeScript', 'Bash'],
+      icon: <Code size={20} />,
+    },
+    {
+      title: 'Cloud',
+      skills: ['AWS', 'Docker', 'Kubernetes'],
+      icon: <Cloud size={20} />,
     },
     {
       title: 'Tools & Frameworks',
-      skills: ['React', 'Node.js', 'Django', 'Flask', 'FastAPI', 'Git'],
+      skills: ['Git', 'Linux', 'Jupyter', 'FastAPI', 'Flutter', 'React'],
       icon: <Terminal size={20} />,
     },
   ];

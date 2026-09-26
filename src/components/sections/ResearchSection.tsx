@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Cloud, Network, Database } from 'lucide-react';
+import { Sparkles, ShieldAlert, Bot, Cloud } from 'lucide-react';
 
 interface ResearchAreaProps {
   title: string;
@@ -50,47 +50,47 @@ const ResearchAreaCard: React.FC<ResearchAreaProps> = ({ title, description, ico
 export const ResearchSection: React.FC = () => {
   const researchAreas = [
     {
-      title: 'Distributed Systems',
-      description: 'Investigating scalable architectures and efficient resource management in large-scale distributed computing environments. Focus on consensus algorithms, fault tolerance, and system reliability.',
-      icon: <Network size={24} />,
+      title: 'AI Security',
+      description: 'The core of my doctoral research: understanding how machine learning models fail when someone is deliberately trying to break them, and what practical defenses hold up outside of controlled benchmarks.',
+      icon: <ShieldAlert size={24} />,
       topics: [
-        'Consensus protocols and coordination',
-        'Fault-tolerant system design',
-        'Load balancing and resource scheduling',
-        'Distributed synchronization mechanisms',
+        'Adversarial examples and evasion attacks',
+        'Data poisoning and training-time threats',
+        'Adversarial training and model robustness',
+        'Machine learning for malware classification',
+      ],
+    },
+    {
+      title: 'Agentic AI',
+      description: 'Exploring systems where language models plan, call tools, and act over multiple steps \u2014 and the new attack surface that autonomy creates once a model can take real actions on a user\u2019s behalf.',
+      icon: <Bot size={24} />,
+      topics: [
+        'Multi-agent orchestration and tool use',
+        'Trust boundaries in autonomous agents',
+        'Indirect prompt injection through external content',
+        'Guardrails and human oversight',
+      ],
+    },
+    {
+      title: 'Large Language Models',
+      description: 'Studying how large language models behave, where they break down, and what it takes to deploy them responsibly \u2014 from fine-tuning and retrieval-augmented generation to evaluating outputs you can actually trust.',
+      icon: <Sparkles size={24} />,
+      topics: [
+        'Fine-tuning and parameter-efficient adaptation',
+        'Retrieval-augmented generation (RAG)',
+        'Prompt injection and jailbreak resistance',
+        'Evaluation and benchmarking of model outputs',
       ],
     },
     {
       title: 'Cloud Computing',
-      description: 'Exploring optimization techniques for cloud infrastructure, including serverless computing, container orchestration, and multi-cloud deployment strategies.',
+      description: 'Looking at how AI workloads are trained, served, and secured in the cloud \u2014 where models meet real infrastructure, and where deployment choices quietly become security decisions.',
       icon: <Cloud size={24} />,
       topics: [
-        'Serverless architecture optimization',
-        'Container orchestration at scale',
-        'Multi-cloud resource management',
-        'Cost-efficient cloud deployment',
-      ],
-    },
-    {
-      title: 'Machine Learning Infrastructure',
-      description: 'Developing frameworks and tools for efficient training and deployment of machine learning models in distributed environments with focus on GPU utilization and model serving.',
-      icon: <Cpu size={24} />,
-      topics: [
-        'Distributed training optimization',
-        'Model serving and inference',
-        'GPU resource allocation',
-        'AutoML and hyperparameter tuning',
-      ],
-    },
-    {
-      title: 'Data Processing Systems',
-      description: 'Building high-throughput data processing pipelines for real-time analytics, stream processing, and batch processing workloads with emphasis on low latency.',
-      icon: <Database size={24} />,
-      topics: [
-        'Stream processing architectures',
-        'Real-time data analytics',
-        'Data pipeline optimization',
-        'Event-driven systems',
+        'Securing ML workloads on cloud platforms',
+        'Containerized training and model serving',
+        'Access control for models and data',
+        'Scalable inference infrastructure',
       ],
     },
   ];
@@ -103,8 +103,9 @@ export const ResearchSection: React.FC = () => {
             Research Interests
           </h2>
           <p className="text-lg text-[var(--color-text-secondary)] max-w-3xl mx-auto">
-            My research focuses on building scalable, efficient, and reliable systems for modern computing challenges, 
-            with applications in distributed systems, cloud computing, and machine learning infrastructure.
+            My research sits at the intersection of artificial intelligence and security — studying how large
+            language models and agentic systems behave under adversarial pressure, and how to deploy them
+            safely on real cloud infrastructure.
           </p>
         </div>
         
